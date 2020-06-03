@@ -1,3 +1,7 @@
+body{
+    background-color: cyan;
+
+}
 a{
     text-decoration: none;
     padding: 5px;
@@ -10,11 +14,11 @@ a{
     width: 1200px;
 }
 .carta{
-    background-color: cyan;
+    background-color: white;
     text-align: center;
     font-size: 20px;
-    padding: 30px 0;
-    height: 90px;
+    padding: 0;
+    height: 150px;
     border-radius: 6px;
     border: 1px solid black;
 }

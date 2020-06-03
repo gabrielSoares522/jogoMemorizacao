@@ -1,7 +1,7 @@
 const app = document.getElementById("app");
-const valores=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+const valores=['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26'];
 var parametro = 6;
-let qtPares = (parametro*parametro)/2;
+const qtPares = (parametro*parametro)/2;
 
 let cartaPega = [];
 let qtselecionadas=0;
@@ -25,8 +25,8 @@ function renderizarCartas(){
             }while(pares[vlCarta] ==2);
             pares[vlCarta]+=1;
 
-            let carta= document.createElement("div");
-            
+            let carta = document.createElement("div");
+
             carta.classList.add("col");
             carta.classList.add("align-middle");
             carta.classList.add("carta");
@@ -45,7 +45,9 @@ function seleCarta(idc='',valor=0){
             console.log("nao selecionavel!");
             return;
         }
-        selecionado.innerHTML = valores[valor];
+        var imagem = document.createElement("img");
+        imagem.src = 'img/icone_'+valores[valor]+'.png';
+        selecionado.appendChild(imagem);
         qtselecionadas++;
         cartaPega.push(selecionado);
 
