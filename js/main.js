@@ -7,6 +7,10 @@ let cartaPega = [];
 let qtselecionadas=0;
 let qtDescobertos=0;
 
+const interrogacao = document.createElement("img");
+interrogacao.src="svg/interrogacao.svg";
+interrogacao.classList.add("interrogacao");
+
 console.log(parametro);
 console.log(qtPares);
 function renderizarCartas(){
@@ -26,7 +30,7 @@ function renderizarCartas(){
             pares[vlCarta]+=1;
 
             let carta = document.createElement("div");
-
+            carta.innerHTML = interrogacao.outerHTML;
             carta.classList.add("col");
             carta.classList.add("align-middle");
             carta.classList.add("carta");
@@ -39,15 +43,21 @@ function renderizarCartas(){
     console.log(pares);
 }
 function seleCarta(idc='',valor=0){
+
     if(qtselecionadas<2){
         var selecionado = document.getElementById(idc);
-        if(selecionado.innerHTML !=''){
+        if(selecionado.innerHTML !=interrogacao.outerHTML){
             console.log("nao selecionavel!");
             return;
         }
+        selecionado.style.backgroundColor = "white";
         var imagem = document.createElement("img");
         imagem.src = 'img/icone_'+valores[valor]+'.png';
+        imagem.classList.add("imagem");
+        selecionado.innerHTML="";
+
         selecionado.appendChild(imagem);
+        
         qtselecionadas++;
         cartaPega.push(selecionado);
 
@@ -64,8 +74,10 @@ function seleCarta(idc='',valor=0){
             else{
                 setTimeout(() => {
                     console.log("cartas diferentes!");
-                    cartaPega[0].innerHTML='';
-                    cartaPega[1].innerHTML='';
+                    cartaPega[0].innerHTML=interrogacao.outerHTML;
+                    cartaPega[1].innerHTML=interrogacao.outerHTML;
+                    cartaPega[0].style.backgroundColor ="";
+                    cartaPega[1].style.backgroundColor ="";
                     qtselecionadas = 0;
                     cartaPega = [];
                 }, 500);
